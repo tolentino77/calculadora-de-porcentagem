@@ -33,3 +33,6 @@ Para visualizar e testar a calculadora:
     ```
 3.  **Abra o arquivo `index.html`** no seu navegador de preferência.
 4.  Digite um valor de porcentagem (entre 0 e 100) no campo de entrada para ver o resultado em tempo real.
+
+## 🔗 Link da Calculadora 
+https://calculadora-de-porcentagem.vercel.app/
