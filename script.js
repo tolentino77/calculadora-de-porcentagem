@@ -1,4 +1,3 @@
-
 document.getElementById('percent').addEventListener('input', function () {
     // Pega a porcentagem inserida
     let percent = parseFloat(this.value);

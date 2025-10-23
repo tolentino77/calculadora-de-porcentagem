@@ -133,3 +133,198 @@ input:focus {
         font-size: 1.2rem;
     }
 }
+
+
+/* Utilização de variáveis para facilitar a manutenção e consistência das cores. */
+
+:root {
+    /* Cores de Base */
+    --color-background: #ffffff;
+    --color-primary-text: #4a4a4a; /* Cor principal de títulos e resultados */
+    --color-secondary-text: #666; /* Cor de labels e texto discreto */
+    --color-light-background: #f8f9fa; /* Fundo de inputs e resultados */
+    --color-border: #e1e5e9;
+    --color-accent-focus: #535662; /* Cor de foco do input */
+
+    /* Cores de Feedback (Aprovação/Reprovação) - Tons mais suaves e legíveis */
+    --color-success: #28a745; /* Verde de sucesso (>= 60%) */
+    --color-failure: #dc3545; /* Vermelho de perigo (< 60%) */
+    --color-success-bg: #d4edda; /* Fundo suave para sucesso */
+    --color-failure-bg: #f8d7da; /* Fundo suave para falha */
+}
+
+
+/* RESET E ESTILOS GLOBAIS */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: var(--color-background); /* Usando variável */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    /* Alterado de #fff7f7 para a cor primária para garantir visibilidade
+       em elementos fora do container (como o footer), que antes ficavam invisíveis. */
+    color: var(--color-primary-text);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    /* Necessário para posicionar o footer de forma absoluta */
+    position: relative;
+    padding-bottom: 50px; /* Espaço para o rodapé */
+}
+
+
+/* CONTAINER PRINCIPAL */
+
+.container {
+    background-color: var(--color-background); /* Usando variável */
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    border: 2px solid var(--color-border); /* Usando variável */
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+}
+
+
+/* TÍTULO E LABEL */
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: var(--color-primary-text); /* Usando variável */
+    font-weight: 300;
+}
+
+label {
+    display: block;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    color: var(--color-secondary-text); /* Usando variável */
+    font-weight: 500;
+}
+
+
+/* INPUT */
+
+input {
+    padding: 15px 20px;
+    margin-top: 10px;
+    width: 100%;
+    border: 2px solid var(--color-border); /* Usando variável */
+    border-radius: 10px;
+    font-size: 1.2rem;
+    text-align: center;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    background-color: var(--color-light-background); /* Usando variável */
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--color-accent-focus); /* Usando variável */
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    background-color: var(--color-background); /* Usando variável */
+}
+
+/* RESULTADO */
+
+.result {
+    margin-top: 30px;
+    background-color: var(--color-light-background); /* Usando variável */
+    border-radius: 15px;
+    padding: 20px;
+    border: 1px solid var(--color-border); /* Usando variável */
+}
+
+.result p {
+    font-size: 1.3rem;
+    margin: 15px 0;
+    font-weight: 500;
+    color: var(--color-primary-text); /* Usando variável */
+}
+
+.result span {
+    color: var(--color-primary-text); /* Cor padrão inicial */
+    font-weight: 700;
+    font-size: 1.4rem;
+    transition: color 0.3s ease, background-color 0.3s ease, padding 0.3s ease; /* Transição de cores e fundo */
+    border-radius: 5px; /* Arredondamento para o fundo de destaque */
+    padding: 2px 5px; /* Adicionado padding para o fundo de destaque */
+    display: inline-block; /* Garante que o padding funcione corretamente */
+}
+
+/* Feedback Visual: Vermelho para reprovação (< 60%) */
+.result span.red {
+    color: var(--color-failure); /* Cor de falha mais suave */
+    background-color: var(--color-failure-bg); /* Fundo sutil para destaque */
+}
+
+/* Feedback Visual: Verde para aprovação (>= 60%) */
+.result span.green {
+    color: var(--color-success); /* Cor de sucesso mais suave */
+    background-color: var(--color-success-bg); /* Fundo sutil para destaque */
+}
+
+
+/* LOGO */
+
+.logo {
+    position: fixed;
+    top: 10px;
+    left: 20px;
+    width: 100px;
+    height: auto;
+    z-index: 10;
+}
+
+/* RODAPÉ (FOOTER) - NOVO ESTILO PARA VISIBILIDADE */
+
+footer {
+    
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 0.9rem;
+    color: #b0b0b0; /* Cinza discreto para o texto */
+}
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 480px) {
+    .container {
+        padding: 30px 20px;
+        margin: 20px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    input {
+        font-size: 1rem;
+        padding: 12px 15px;
+    }
+
+    .result p {
+        font-size: 1.1rem;
+    }
+
+    .result span {
+        font-size: 1.2rem;
+    }
+}
