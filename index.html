@@ -4,26 +4,62 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EQUIPE DE TI - JVT</title>
+    <link rel="icon" type="image/png" href="img/george-removebg-preview.png">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
     <!-- Imagem no canto superior esquerdo -->
-    <img src="/img/george-removebg-preview.png" alt="Logo EMGC" class="logo">
+    <img src="img/george-removebg-preview.png" alt="Logo EMGC" class="logo">
 
-    <div class="container">
+    <main class="container">
+        <header class="card-header">
+            <p class="eyebrow">Equipe de TI - JVT</p>
+        </header>
+
         <h1>Calculadora de Porcentagem</h1>
         <label for="percent">Digite a porcentagem (0-100%):</label>
-        <input type="number" id="percent" placeholder="0" min="0" max="100">
 
-        <div class="result">
-            <p><strong>Para 6:</strong> <span id="result-6">0</span></p>
-            <p><strong>Para 8:</strong> <span id="result-8">0</span></p>
+        <div class="input-wrapper">
+            <div class="number-field">
+                <input type="number" id="percent" placeholder="Ex.: 75" min="0" max="100" step="0.01">
+            </div>
+            <small class="hint">Use ponto ou virgula para casas decimais.</small>
         </div>
-    </div>
+
+        <div class="result" id="results-card">
+            <div class="result-grid" id="results-list">
+                <p class="empty">Os resultados aparecerão aqui.</p>
+            </div>
+        </div>
+
+        <p class="feedback" id="feedback-text">Insira um valor para ver o feedback.</p>
+
+        <section class="base-manager">
+            <div class="section-heading">
+                <h2>Valores base</h2>
+                <p>Caso seja necessário, adicione outros valores para acompanhar.</p>
+            </div>
+            <form id="base-form" class="base-form">
+                <label for="base-value" class="sr-only">Novo valor base</label>
+                <input type="number" id="base-value" placeholder="Ex.: 12" step="0.01" min="0">
+                <button type="submit">Adicionar</button>
+            </form>
+            <div class="base-chips" id="base-chips" aria-live="polite"></div>
+        </section>
+
+    </main>
 
     <script src="script.js"></script>
 
-    <footer>Feito pela Equipe de TI - George Chalmers 2025</footer>
+    <footer>
+        <div class="footer-content">
+            <span>&copy; 2025 João Tolentino - George Chalmers</span>
+            <nav class="footer-links" aria-label="Links sociais">
+                <a href="https://www.instagram.com/emgeorgechalmers/" target="_blank" rel="noreferrer noopener">Instagram</a>
+                <a href="https://www.linkedin.com/in/jo%C3%A3o-vitor-tolentino/" target="_blank" rel="noreferrer noopener">LinkedIn</a>
+            </nav>
+        </div>
+    </footer>
 </body>
 </html>
