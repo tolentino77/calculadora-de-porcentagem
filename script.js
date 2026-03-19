@@ -6,7 +6,7 @@ const baseForm = document.getElementById('base-form');
 const baseValueInput = document.getElementById('base-value');
 const baseChips = document.getElementById('base-chips');
 
-const DEFAULT_BASES = [6, 8, 10, 12];
+const DEFAULT_BASES = [4, 6, 8];
 const BASE_KEY = 'cg-base-values';
 let baseValues = loadBaseValues();
 
